@@ -18,7 +18,7 @@
     <li><a href="#contributors"> ➤ Contributors</a></li>
   </ol>
 </details>
-[-----------------------------------------------------](images/8238923_rainbow-line-png-png-download.png)
+<img src="images/8238923_rainbow-line-png-png-download.png" alt="line" width="70%" height="70%">
 
 <h2> Guild for generate MOT tracking dataset </h2>
 1. 
