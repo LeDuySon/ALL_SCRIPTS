@@ -40,9 +40,6 @@ pip install -r requirement.txt
 <pre><code>
   .
   ├── images
-  │   ├── results
-  │   │   ├── fairmot_dla34_baseline
-  │   │   └── fairmot_dla34_finetune_all_reidim64
   │   ├── test
   │   │   ├── seq1
   │   │   │   ├── det
