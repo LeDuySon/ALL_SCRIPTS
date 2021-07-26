@@ -12,16 +12,27 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
+    <li><a href="Setup"> ➤ Set up</a></li>
     <li><a href="#generate mot format dataset"> ➤ Generate MOT format dataset </a></li>
     <li><a href="#generate reid dataset for torchreid"> ➤ Prerequisites</a></li>
     <li><a href="#references"> ➤ References</a></li>
     <li><a href="#contributors"> ➤ Contributors</a></li>
   </ol>
 </details>
-<img src="images/8238923_rainbow-line-png-png-download.png" alt="line" width="70%" height="70%">
 
-<h2> Guild for generate MOT tracking dataset </h2>
-1. 
+
+
+
+<ol>
+  <li><h2> Set up </h2></li>
+  <br>
+  
+  
+  <li><h2> Guild for generate MOT tracking dataset </h2></li>
+  <br>
+  
+
+   
 
 ## 
 
