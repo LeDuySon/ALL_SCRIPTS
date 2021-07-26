@@ -23,6 +23,7 @@
 
 <h2> 1. Set up </h2>
 <br>
+
 ``` 
 git clone https://github.com/LeDuySon/ALL_SCRIPTS.git
 conda create -n {name} python=3.8
@@ -32,7 +33,10 @@ pip install -r requirement.txt
 
 <h2> :floppy_disk: Generate MOT format dataset </h2>
 <br>
-* MOT dataset structure
+
+<!-- :paw_prints:-->
+<!-- FOLDER STRUCTURE -->
+<h4 id="folder-structure"> :cactus: Folder Structure</h2>
 ```
 .
 ├── images
