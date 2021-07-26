@@ -75,6 +75,10 @@ pip install -r requirement.txt
       <p> Note: 
         - video_path: Path to video file (Only support .mp4)
         - save_path: Save folder path ( eg: {ROOT}/images/train or {ROOT}/images/test)
+        - If you want to run on multiple video, run:
+        <pre><code>
+          bash gen_frames {folder contain your .mp4 files} {save_path}
+        </pre></code>
       </p>
       <li> After that, run: </li>
       <pre><code>
