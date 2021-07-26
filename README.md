@@ -1,4 +1,9 @@
-# My script for generate dataset
+<h1 align="center"> My script for generate dataset </h1>
+</br>
+<p align="center"> 
+  <img src="images/Signal.gif" alt="Sample signal" width="70%" height="70%">
+</p>
+
 <br>
 
 <!-- TABLE OF CONTENTS -->
