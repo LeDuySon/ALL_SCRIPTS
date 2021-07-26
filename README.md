@@ -26,9 +26,13 @@
 
 <code>
 git clone https://github.com/LeDuySon/ALL_SCRIPTS.git
+  
 conda create -n {name} python=3.8
+  
 conda activate {name}
+  
 pip install -r requirement.txt
+  
 </code>
 
 <h2> :floppy_disk: Generate MOT format dataset </h2>
