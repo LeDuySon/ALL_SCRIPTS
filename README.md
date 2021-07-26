@@ -38,6 +38,7 @@ pip install -r requirement.txt
 <!-- FOLDER STRUCTURE -->
 <h4 id="folder-structure"> :cactus: Folder Structure</h2>
   code
+  ```
   .
   ├── images
   │   ├── results
@@ -74,7 +75,7 @@ pip install -r requirement.txt
       │   └── seq3
       │       └── img1
       └── train
-
+  ```
    
 
 ## 
