@@ -32,7 +32,6 @@ conda create -n {name} python=3.8
 conda activate {name}
   
 pip install -r requirement.txt
-  
 </code>
 
 <h2> :floppy_disk: Generate MOT format dataset </h2>
@@ -41,7 +40,7 @@ pip install -r requirement.txt
 <!-- :paw_prints:-->
 <!-- FOLDER STRUCTURE -->
 <h4 id="folder-structure"> :cactus: Folder Structure</h2>
-<code><p>
+<pre><code>
   .
   ├── images
   │   ├── results
@@ -78,7 +77,7 @@ pip install -r requirement.txt
       │   └── seq3
       │       └── img1
       └── train
-</p></code>
+</code></pre>
    
 
 ## 
