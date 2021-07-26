@@ -73,13 +73,11 @@ pip install -r requirement.txt
       python generate_fairmot_dataset.py --video_path {video_path} --save_path {save_path}
       </pre></code>
       <p> Note: 
-        
-        - video_path: Path to video file (Only support .mp4)
-        
-        - save_path: Save folder path ( eg: {ROOT}/images/train or {ROOT}/images/test)
-        
-        - If you want to run on multiple video, run:
-        
+      <ul>
+        <li> video_path: Path to video file (Only support .mp4) </li>
+        <li> save_path: Save folder path ( eg: {ROOT}/images/train or {ROOT}/images/test) </li>
+        <li> If you want to run on multiple video, run: </li>
+      </ul>
         <pre><code>
           bash gen_frames {folder contain your .mp4 files} {save_path}
         </pre></code>
@@ -88,12 +86,9 @@ pip install -r requirement.txt
       <pre><code>
       python create_dataset.py --root_path {root_path} --gt_path {gt_path}
       </pre></code>
-      <p> Note: 
-        
+      <p> Note:  
         - root_path: Path to your MOT dataset folder train or test(eg: {ROOT}/images/train or {ROOT}/images/test
-        
         - gt_path: Save folder path ( eg: {ROOT}/images/train or {ROOT}/images/test)
-        
       </p>
       <li> Just wait and have a coffee</li>
 </li>
