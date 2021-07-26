@@ -87,8 +87,11 @@ pip install -r requirement.txt
       python create_dataset.py --root_path {root_path} --gt_path {gt_path}
       </pre></code>
       <p> Note:  
-        - root_path: Path to your MOT dataset folder train or test(eg: {ROOT}/images/train or {ROOT}/images/test
-        - gt_path: Save folder path ( eg: {ROOT}/images/train or {ROOT}/images/test)
+         <ul>
+            <li> root_path: Path to your MOT dataset folder train or test(eg: {ROOT}/images/train or {ROOT}/images/test </li>
+            <li> gt_path: Save folder path ( eg: {ROOT}/images/train or {ROOT}/images/test) </li>
+            <li> If you want to run on multiple video, run: </li>
+         </ul>
       </p>
       <li> Just wait and have a coffee</li>
 </li>
