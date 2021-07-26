@@ -4,6 +4,9 @@ import re
 import argparse
 import cv2 
 import shutil
+import subprocess
+import time 
+
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('--root_path', '-rp', type=str,
                                     help="path to root folder which contains seq folder")
@@ -53,19 +56,19 @@ seqinfo_dict = {"name": "",
 
 seqs = glob.glob(args.root_path + "/*")
 for seq in seqs:
-    # create img1 files
-    #seq_length, w, h = create_img1_folder(seq)
+   # create img1 files
+    seq_length, w, h = create_img1_folder(seq)
     name = seq.split("/")[-1]
     
     # create seqinfo.ini file
-    #tmp = seqinfo_dict.copy()
-    #tmp["seqLength"] = seq_length
-    #tmp["imWidth"] = w
-    #tmp["imHeight"] = h
-    #tmp["imDir"] = "img1"
-    #tmp["name"] = name
-    #create_seqinfo(seq, **tmp)
-    #print("Finish ", seq)
+    tmp = seqinfo_dict.copy()
+    tmp["seqLength"] = seq_length
+    tmp["imWidth"] = w
+    tmp["imHeight"] = h
+    tmp["imDir"] = "img1"
+    tmp["name"] = name
+    create_seqinfo(seq, **tmp)
+    print("Finish ", seq)
     
     # create gt folder
     gt_save = os.path.join(seq, "gt")
@@ -75,5 +78,14 @@ for seq in seqs:
     # create det folder
     create_folder(os.path.join(seq, "det"))
 
+    # get path to label_root folder
+if(args.root_path[-1] == "/"):
+    args.root_path = args.root_path[:-1]
+
+ps = args.root_path.split("/")
+ps[-2] = "labels_with_ids"
+label_root = "/".join(ps)
+    
+subprocess.check_call(['python', 'gen_labels_uet.py', "--seq_root", args.root_path, "--label_root", label_root])
 
     
