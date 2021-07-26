@@ -88,6 +88,10 @@ pip install -r requirement.txt
 </li>
 </ul>
 
+<h2> :floppy_disk: Generate reid dataset </h2>
+
+.............
+
 
    
 
