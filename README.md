@@ -33,45 +33,53 @@ pip install -r requirement.txt
 
 <h2> :floppy_disk: Generate MOT format dataset </h2>
 <br>
-
 <!-- :paw_prints:-->
 <!-- FOLDER STRUCTURE -->
-<h4 id="folder-structure"> :cactus: Folder Structure</h2>
+<ul>
+<li><h4 id="folder-structure"> MOT dataset structure</h2></li>
 <pre><code>
-  .
+  {ROOT}
   ├── images
   │   ├── test
-  │   │   ├── seq1
-  │   │   │   ├── det
-  │   │   │   ├── gt
-  │   │   │   └── img1
-  │   │   ├── seq2
-  │   │   │   ├── det
-  │   │   │   ├── gt
-  │   │   │   └── img1
-  │   │   └── seq3
-  │   │       ├── det
-  │   │       ├── gt
-  │   │       └── img1
   │   └── train
-  │       ├── seq4
-  │       │   ├── det
-  │       │   ├── gt
-  │       │   └── img1
-  │       ├── seq5
-  │       │   ├── det
-  │       │   ├── gt
-  │       │   └── img1
   └── labels_with_ids
-      ├── test
-      │   ├── seq1
-      │   │   └── img1
-      │   ├── seq2
-      │   │   └── img1
-      │   └── seq3
-      │       └── img1
-      └── train
 </code></pre>
+<li><h4 id="folder-structure"> Your dataset structure</h2></li>
+<pre><code>
+  {ROOT}
+  ├── video1.mp4
+  ├── video1
+  │   └── gt
+  │       ├── gt.txt
+  │       └── labels.txt
+  ├── video2.mp4
+  ├── video2
+  │   └── gt
+  │       ├── gt.txt
+  │       └── labels.txt
+  ├── video3.mp4
+  ├── video3
+  │   └── gt
+  │       ├── gt.txt
+  │       └── labels.txt
+   
+</code></pre>
+<li> 
+  <h4> Generate Steps: </h4>
+    <ol>
+      <li> Create a folder that have structure likes MOT dataset </li>
+      <li> Go to folder generate_fairmot_dataset/, run to generate frame</li>
+      <pre><code>
+      python generate_fairmot_dataset.py --video_path {video_path} --save_path {save_path}
+      </pre></code>
+      <p> Note: 
+        - video_path: Path to video file (Only support .mp4)
+        - save_path: Save folder path ( eg: {ROOT}/images/train or {ROOT}/images/test)
+        
+</li>
+</ul>
+
+
    
 
 ## 
