@@ -12,7 +12,7 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="Setup"> ➤ Set up</a></li>
+    <li><a href="#Setup"> ➤ Set up</a></li>
     <li><a href="#generate mot format dataset"> ➤ Generate MOT format dataset </a></li>
     <li><a href="#generate reid dataset for torchreid"> ➤ Prerequisites</a></li>
     <li><a href="#references"> ➤ References</a></li>
@@ -21,7 +21,7 @@
 </details>
 
 
-<h2> :hammer: Set up </h2>
+<h2 id="Setup"> :hammer: Set up </h2>
 <br>
 
 <pre><code>
@@ -31,7 +31,7 @@ conda activate {name}
 pip install -r requirement.txt
 </pre></code>
 
-<h2> :floppy_disk: Generate MOT format dataset </h2>
+<h2 id="generate mot format dataset"> :floppy_disk: Generate MOT format dataset </h2>
 <br>
 <!-- :paw_prints:-->
 <!-- FOLDER STRUCTURE -->
@@ -97,7 +97,7 @@ pip install -r requirement.txt
 </li>
 </ul>
 
-<h2> :floppy_disk: Generate reid dataset </h2>
+<h2 id="generate reid dataset for torchreid"> :floppy_disk: Generate reid dataset </h2>
 
 .............
 
