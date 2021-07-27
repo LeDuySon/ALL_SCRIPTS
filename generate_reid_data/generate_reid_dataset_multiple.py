@@ -99,7 +99,7 @@ def split_train_gallery(train_path, gallery_path, ratio = 0.3):
     for t in track_folder:
         if(num_id_gallery == 0):
             break
-        if(int(t) % 2 == 0 and num_ids % 2 == 0):
+        if(int(t) % 2 == 0 and num_ids % 2 == 0 and ratio != 0 and ratio != 1):
             continue
         save_folder = os.path.join(gallery_path, t)
         target_folder = os.path.join(train_path, t)
@@ -161,11 +161,20 @@ if __name__ == "__main__":
                         help='video path to extract frame')
     parser.add_argument('--save_path', '-sp', type=str, 
                         help="save frame video path")
+    parser.add_argument('--mode', '-m', type=str,
+                        help="split data mode train|test|all")
     parser.add_argument('--gallery_ratio', '-gr', type=float, default=0.3,
                         help="train and gallery ratio split")
     parser.add_argument('--num_query', '-nq', type=int,
                         default=1, help="number query per id")
     args = parser.parse_args()
+    
+    if(args.mode == "train"):
+        args.gallery_ratio = 0
+        args.num_query = 0
+    elif(args.mode == "test"):
+        args.gallery_ratio = 1
+        args.num_query = 1
 
     # Config params
     IMG_SIZE = (256, 128) # h, w
