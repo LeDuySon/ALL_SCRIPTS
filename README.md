@@ -14,7 +14,7 @@
   <ol>
     <li><a href="#Setup"> ➤ Set up</a></li>
     <li><a href="#generate mot format dataset"> ➤ Generate MOT format dataset </a></li>
-    <li><a href="#generate reid dataset for torchreid"> ➤ Prerequisites</a></li>
+    <li><a href="#generate reid dataset for torchreid"> ➤ Generate reid dataset</a></li>
     <li><a href="#references"> ➤ References</a></li>
     <li><a href="#contributors"> ➤ Contributors</a></li>
   </ol>
