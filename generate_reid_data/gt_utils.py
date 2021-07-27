@@ -25,12 +25,6 @@ def get_object_frame(file):
     group_frame = defaultdict(list)
     for v in humans:
         group_frame[v.frame].append(v)
-    persons_inf = group_frame[1]
-    bbox_gt_xyxy = list(map(lambda x: x.xywh_to_xyxy(), persons_inf))
-    identities_gt = list(map(lambda x: x.track_id, persons_inf))
-    print("bbox: ", bbox_gt_xyxy)
-    print("id: ", identities_gt)
-    print("gf: ", group_frame[1])
     return group_frame
 
 def compute_color_for_labels(label):

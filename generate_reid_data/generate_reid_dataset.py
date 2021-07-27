@@ -40,6 +40,7 @@ def check_num_files(path):
         return len(os.listdir(path))
     return 0
 
+
 save_path = args.save_path
 train_path = os.path.join(save_path, "train")
 gallery_path = os.path.join(save_path, "gallery")
