@@ -36,6 +36,7 @@ pip install -r requirement.txt
 <br>
 
 <ul>
+  <li><h4> You have to prepare your dataset same as below</h4></li>
 <li><h4 id="folder-structure"> Your dataset structure </h2></li>
 <pre><code>
   {ROOT}
@@ -107,7 +108,12 @@ pip install -r requirement.txt
 
 <h2 id="generate reid dataset for torchreid"> :floppy_disk: Generate reid dataset </h2>
 
-.............
+<h5> Your dataset must be the same as ours <a href="#dataset structure"> datasets </a>
+  
+<pre><code>
+
+</code></pre>
+
 
 
    
