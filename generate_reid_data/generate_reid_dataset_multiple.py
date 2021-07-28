@@ -12,7 +12,7 @@ import shutil
 
 def create_folder(path):
     if not os.path.exists(path):
-        print("Create folder: ", path)
+        #print("Create folder: ", path)
         os.mkdir(path)
 
 def check_num_files(path):
@@ -38,7 +38,7 @@ def init_path(args):
 
 def generate_frames(video_path, train_path):
     global CUR_NUM_ID
-
+    print(CUR_NUM_ID)
     videoFile = video_path
     print(videoFile)
     vidcap = cv2.VideoCapture(videoFile)
@@ -76,11 +76,11 @@ def generate_frames(video_path, train_path):
                 crop_obj = cv2.resize(crop_obj, IMG_SIZE)
                 create_folder(save_path)
                 save_crop_name = os.path.join(save_path, "{}.jpg".format(frameId))
-                print(save_crop_name)
+                #print(save_crop_name)
                 cv2.imwrite(save_crop_name, crop_obj)
     # keep track number of ids each video
-    CUR_NUM_ID += len(os.listdir(train_path))
-
+    CUR_NUM_ID = len(os.listdir(train_path)) -1 
+    
     vidcap.release()
     print("Complete: ", video_path)
 
@@ -91,7 +91,7 @@ def split_train_gallery(train_path, gallery_path, ratio = 0.3):
     track_folder = os.listdir(train_path)
     num_id_gallery = int(len(track_folder) * ratio)
     num_ids = len(track_folder)
-
+    
     import random 
     random.shuffle(track_folder)
 
@@ -99,7 +99,7 @@ def split_train_gallery(train_path, gallery_path, ratio = 0.3):
     for t in track_folder:
         if(num_id_gallery == 0):
             break
-        if(int(t) % 2 == 0 and num_ids % 2 == 0 and ratio != 0 and ratio != 1):
+        if((int(t) % 2 == 0 and num_ids % 2 == 0 and ratio != 1) or ratio == 0):
             continue
         save_folder = os.path.join(gallery_path, t)
         target_folder = os.path.join(train_path, t)
@@ -170,12 +170,14 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     if(args.mode == "train"):
+        print("TRAIN")
         args.gallery_ratio = 0
         args.num_query = 0
     elif(args.mode == "test"):
+        print("TEST")
         args.gallery_ratio = 1
         args.num_query = 1
-
+    
     # Config params
     IMG_SIZE = (256, 128) # h, w
     CUR_NUM_ID = -1 # number of current ids, -1 because our dataset is 0 based but MOT format is 1 based
