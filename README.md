@@ -13,6 +13,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#Setup"> ➤ Set up</a></li>
+    <li><a href="#dataset structure"> ➤ Dataset Structure</a></li>
     <li><a href="#generate mot format dataset"> ➤ Generate MOT format dataset </a></li>
     <li><a href="#generate reid dataset for torchreid"> ➤ Generate reid dataset</a></li>
     <li><a href="#references"> ➤ References</a></li>
@@ -31,20 +32,11 @@ conda activate {name}
 pip install -r requirement.txt
 </pre></code>
 
-<h2 id="generate mot format dataset"> :floppy_disk: Generate MOT format dataset </h2>
+<h2 id="dataset structure"> :books: Dataset Structure</h2>
 <br>
-<!-- :paw_prints:-->
-<!-- FOLDER STRUCTURE -->
+
 <ul>
-<li><h4 id="folder-structure"> MOT dataset structure</h2></li>
-<pre><code>
-  {ROOT}
-  ├── images
-  │   ├── test
-  │   └── train
-  └── labels_with_ids
-</code></pre>
-<li><h4 id="folder-structure"> Your dataset structure</h2></li>
+<li><h4 id="folder-structure"> Your dataset structure </h2></li>
 <pre><code>
   {ROOT}
   ├── video1.mp4
@@ -64,6 +56,22 @@ pip install -r requirement.txt
   │       └── labels.txt
    
 </code></pre>
+</ul>
+  
+<h2 id="generate mot format dataset"> :floppy_disk: Generate MOT format dataset </h2>
+<br>
+<!-- :paw_prints:-->
+<!-- FOLDER STRUCTURE -->
+<ul>
+<li><h4 id="folder-structure"> MOT dataset structure</h2></li>
+<pre><code>
+  {ROOT}
+  ├── images
+  │   ├── test
+  │   └── train
+  └── labels_with_ids
+</code></pre>
+
 <li> 
   <h4> Generate Steps: </h4>
     <ol>
