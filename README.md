@@ -97,8 +97,8 @@ pip install -r requirement.txt
       </pre></code>
       <p> Note:  
          <ul>
-            <li> root_path: Path to your MOT dataset folder train or test(eg: {ROOT}/images/train or {ROOT}/images/test </li>
-            <li> gt_path: Save folder path ( eg: {ROOT_MOT}/images/train or {ROOT_MOT}/images/test) </li>
+            <li> root_path: Path to your MOT dataset folder train or test(eg: {ROOT_MOT}/images/train or {ROOT_MOT}/images/test </li>
+            <li> gt_path: Path to groundtruth folder ( eg: {ROOT}/train or {ROOT}/test) </li>
             <li> If you want to run on multiple video, run: </li>
          </ul>
       </p>
