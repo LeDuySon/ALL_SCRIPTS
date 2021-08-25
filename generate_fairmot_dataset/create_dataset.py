@@ -21,7 +21,14 @@ def create_folder(folder):
         os.mkdir(folder)
 
 def create_img1_folder(seq):
-    imgs = glob.glob(seq + "/*.jpg")
+    types = ('*.jpg', '*.PNG', '*.png')
+    imgs = []
+    for type in types:
+        imgs.extend(glob.glob(seq + "/" + type))
+    
+    if len(imgs) == 0:
+        print("Cant find any images in seq: ", seq)
+        return 0, 0, 0
     img1 = os.path.join(seq, "img1")
     seq_length = len(imgs)
     create_folder(img1)
@@ -57,9 +64,12 @@ seqinfo_dict = {"name": "",
 seqs = glob.glob(args.root_path + "/*")
 for seq in seqs:
    # create img1 files
+    print(seq)
     seq_length, w, h = create_img1_folder(seq)
     name = seq.split("/")[-1]
     
+    if(w == 0):
+        continue
     # create seqinfo.ini file
     tmp = seqinfo_dict.copy()
     tmp["seqLength"] = seq_length
@@ -68,13 +78,13 @@ for seq in seqs:
     tmp["imDir"] = "img1"
     tmp["name"] = name
     create_seqinfo(seq, **tmp)
-    print("Finish ", seq)
-    
+
+    print("Finish ", seq)    
     # create gt folder
     gt_save = os.path.join(seq, "gt")
     gt_copy_from = os.path.join(args.gt_path, name, "gt/gt.txt")
     create_gt(gt_copy_from, gt_save)
-    
+
     # create det folder
     create_folder(os.path.join(seq, "det"))
 
