@@ -73,7 +73,7 @@ def generate_frames(video_path, train_path):
                #     save_path = os.path.join(test_path, f"{obj.track_id}")
                 crop_obj = image[y:y+h, x:x+w]
                 # resize all images to fixed size
-                crop_obj = cv2.resize(crop_obj, IMG_SIZE)
+                #crop_obj = cv2.resize(crop_obj, IMG_SIZE)
                 create_folder(save_path)
                 save_crop_name = os.path.join(save_path, "{}.jpg".format(frameId))
                 #print(save_crop_name)
