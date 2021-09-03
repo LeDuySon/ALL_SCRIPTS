@@ -148,10 +148,15 @@ def main(args):
     videos = glob.glob(args.data_path + "/*.mp4")
     # generate frame for each video
     for video in videos:
-        generate_frames(video, train_path)
+        if(args.mode == "test"):
+            generate_frames(video, gallery_path)
+        else:
+            generate_frames(video, train_path)
     
     print("Split train gallery query")
-    split_train_gallery(train_path, gallery_path, args.gallery_ratio)
+    
+    if(args.mode == "train"):
+        split_train_gallery(train_path, gallery_path, args.gallery_ratio)
     split_gallery_query(query_path, gallery_path, args.num_query)
 
 if __name__ == "__main__":
