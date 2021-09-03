@@ -36,6 +36,7 @@ pip install -r requirement.txt
 <br>
 
 <ul>
+  <li><h4> You have to prepare your dataset same as below</h4></li>
 <li><h4 id="folder-structure"> Your dataset structure </h2></li>
 <pre><code>
   {ROOT}
@@ -65,7 +66,7 @@ pip install -r requirement.txt
 <ul>
 <li><h4 id="folder-structure"> MOT dataset structure</h2></li>
 <pre><code>
-  {ROOT}
+  {ROOT_MOT}
   ├── images
   │   ├── test
   │   └── train
@@ -96,8 +97,8 @@ pip install -r requirement.txt
       </pre></code>
       <p> Note:  
          <ul>
-            <li> root_path: Path to your MOT dataset folder train or test(eg: {ROOT}/images/train or {ROOT}/images/test </li>
-            <li> gt_path: Save folder path ( eg: {ROOT}/images/train or {ROOT}/images/test) </li>
+            <li> root_path: Path to your MOT dataset folder train or test(eg: {ROOT_MOT}/images/train or {ROOT_MOT}/images/test </li>
+            <li> gt_path: Path to groundtruth folder ( eg: {ROOT}/train or {ROOT}/test) </li>
             <li> If you want to run on multiple video, run: </li>
          </ul>
       </p>
@@ -107,7 +108,46 @@ pip install -r requirement.txt
 
 <h2 id="generate reid dataset for torchreid"> :floppy_disk: Generate reid dataset </h2>
 
-.............
+<ul>
+<li><h5> Your dataset(train|test) must be the same as ours <a href="#dataset structure"> datasets </a> </li>
+<li> Generate reid dataset for multiple videos with mode train or test </li>
+<pre><code>
+python generate_reid_dataset_multiple.py --data_path {path to your dataset, eg {ROOT} in our dataset} \
+                                          --save_path {name of saving folders} --mode {mode train|test|normal}
+</code></pre>
+  
+<li>If you want to prepare dataset entirely, run this: </li>
+<pre><code>
+ bash create_data.sh {path to your train dataset} {path to your test dataset} {name of saving folders}
+</code></pre>
+
+<li> Notes about {mode} args </li>
+  <ul>
+    <li> train: only save in train/ folder </li>
+    <li> test: save to gallery/ folder and then split to query/ folder</li>
+    <li> normal: save to train/ folder and then split to gallery/ and query/ folder</li>
+   </ul>
+</ul>
+
+<h4> Results after generate: </h4>
+<pre><code>
+.          
+├── gallery
+├── query  
+└── train  
+    ├── 0  
+    ├── 1  
+    ├── 2  
+    ├── 3  
+    ├── 4  
+    ├── 5  
+    ├── 6  
+    ├── 7  
+    ├── 8  
+    └── 9  
+
+</code></pre>
+
 
 
    
