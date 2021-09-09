@@ -1,7 +1,18 @@
+set -e 
+
 video_path=$1
 save_path=$2
+frame_interval=$3
+
 for video in ${video_path}/*.mp4; do
-    echo $video
-    echo "TEST"
-    python generate_fairmot_dataset.py --video_path $video --save_path $save_path
+    name=(${video//// })
+    folder_name=$(echo ${name[-1]} | cut -d'.' -f 1)
+    save_folder="${save_path}${folder_name}"
+    echo $save_folder
+    if [ ! -d $save_folder ]
+    then
+        python generate_fairmot_dataset.py --video_path $video --save_path $save_folder --frame_interval $frame_interval
+    else
+        echo "Already run"
+    fi
 done
