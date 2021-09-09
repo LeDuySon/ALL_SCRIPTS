@@ -52,7 +52,11 @@ while success:
  #       continue    
     save_file = os.path.join(args.save_path, save_img_name)
     if(frameId % args.frame_interval == 0):
-        cv2.imwrite("%s" % save_file, image)
+        try:
+            cv2.imwrite("%s" % save_file, image)
+        except Exception as e:
+            print(e)
+            print("Skip error")
         
 vidcap.release()
 print("Complete")
