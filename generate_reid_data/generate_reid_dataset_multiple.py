@@ -205,5 +205,6 @@ if __name__ == "__main__":
 
     # save video info json
     print("Save video info ...")
-    with open(os.path.join(args.save_path, "video_infos.json"), "w") as f:
+    save_info_name = os.path.join(args.save_path, f"{args.mode}_video_infos.json")
+    with open(save_info_name, "w") as f:
         json.dump(info, f)
