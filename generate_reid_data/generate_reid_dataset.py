@@ -15,7 +15,6 @@ parser.add_argument('--save_path', '-sp', type=str,
                     help="save frame video path")
 parser.add_argument('--gt_path', '-gt', type=str,
                     help="path to groundtruth txt file")
-parser.add_argument('--cur_num_id', type=int, default=0, help="num id of previous video, just for merging dataset for testing")
 args = parser.parse_args()
 
 IMG_SIZE = (256, 128) # h, w
@@ -70,7 +69,7 @@ while success:
         for idx, obj in enumerate(group_frame[frameId]):
             x, y, w, h = list(map(int, obj.coord))
             print("Coord: ", obj.coord)
-            obj_id = obj.track_id + args.cur_num_id
+            obj_id = obj.track_id
             save_path = os.path.join(train_path, f"{obj_id}")
            # if(check_num_files(save_path) > limit_train):
            #     save_path = os.path.join(test_path, f"{obj.track_id}")
