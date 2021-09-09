@@ -77,7 +77,7 @@ pip install -r requirement.txt
   <h4> Generate Steps: </h4>
     <ol>
       <li> Create a folder that have structure likes MOT dataset </li>
-      pre><code>
+      <pre><code>
       bash create_folder_tree.sh {Name of ROOT_MOT}
       </pre></code>
       <li> Go to folder generate_fairmot_dataset/, run to generate frame</li>
