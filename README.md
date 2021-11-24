@@ -16,6 +16,7 @@
     <li><a href="#dataset structure"> ➤ Dataset Structure</a></li>
     <li><a href="#generate mot format dataset"> ➤ Generate MOT format dataset </a></li>
     <li><a href="#generate reid dataset for torchreid"> ➤ Generate reid dataset</a></li>
+    <li><a href="#generate for bytetrack"> ➤ Generate bytetrack dataset</a></li>
     <li><a href="#references"> ➤ References</a></li>
     <li><a href="#contributors"> ➤ Contributors</a></li>
   </ol>
@@ -152,9 +153,10 @@ python generate_reid_dataset_multiple.py --data_path {path to your dataset, eg {
 
 </code></pre>
 
+<h2 id="generate for bytetrack"> :floppy_disk: Generate bytetrack dataset </h2>
 
+<li><h5> Your dataset(train|test) must be the same as ours <a href="#dataset structure"> datasets </a> </li>
 
-   
 
 ## 
 
