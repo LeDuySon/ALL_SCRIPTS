@@ -155,8 +155,51 @@ python generate_reid_dataset_multiple.py --data_path {path to your dataset, eg {
 
 <h2 id="generate for bytetrack"> :floppy_disk: Generate bytetrack dataset </h2>
 
-<li><h5> Your dataset(train|test) must be the same as ours <a href="#dataset structure"> datasets </a> </li>
+<li><h4 id="folder-structure-bytetrack"> BYTETRACK dataset structure</h4></li>
+<pre><code>
+{ROOT_COCO}
+├── annotations
+├── test
+├── train
+└── val
+</code></pre>
 
+<li><h5> Your dataset(train|test) must be the same as ours <a href="#dataset structure"> datasets </a> </li>
+<ol>
+      <li> Create a folder that have structure likes COCO dataset </li>
+      <pre><code>
+      bash create_folder_tree.sh {Name of ROOT_COCO}
+      </pre></code>
+      <li> Run to generate frame from video</li>
+      <pre><code>
+      python generate_frame_from_videos.py --video_path {video_path} --save_path {save_path} --frame_interval {frame_interval}
+      </pre></code>
+      <p> Note: 
+      <ul>
+        <li> video_path: Path to video file (Only support .mp4) </li>
+        <li> save_path: Save folder path ( eg: {ROOT}/images/train or {ROOT}/images/test) </li>
+        <li> frame_interval: Number of frame between 2 saving frames</li>
+        <li> If you want to run on multiple video, run: </li>
+      </ul>
+        <pre><code>
+          bash gen_frames {folder contain your .mp4 files} {save_path} {frame_interval}
+        </pre></code>
+      </p>
+      <li> After that, run: </li>
+      <pre><code>
+      python create_dataset.py --root_path {root_path} --gt_path {gt_path}
+      </pre></code>
+      <p> Note:  
+         <ul>
+            <li> root_path: Path to your MOT dataset folder train or test(eg: {ROOT_MOT}/images/train or {ROOT_MOT}/images/test </li>
+            <li> gt_path: Path to groundtruth folder ( eg: {ROOT}/train or {ROOT}/test) </li>
+         </ul>
+      </p>
+      <li> Finally, run this script to convert your dataset to coco format (get json files in annotation folder): </li>
+      <pre><code>
+      python convert_vtx_to_coco.py --data_path {ROOT_COCO}
+      </pre></code>
+      
 
 ## 
 
