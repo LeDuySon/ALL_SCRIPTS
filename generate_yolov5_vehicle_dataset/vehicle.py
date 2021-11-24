@@ -11,7 +11,7 @@ class Vehicle():
     self.lost = int(lost)
     self.occluded = int(occluded)
     self.generated = int(generated)
-    self.class_dict = {"Truck": 0, "Bus": 1, "Car": 2, "Motorbike": 3, "Bicycle": 4, "Container": 5}
+    self.class_dict = {"Truck": 0, "Bus": 1, "Car": 2, "Motorbike": 3, "Bicycle": 3, "Container": 4}
 
   def convert2yolo(self, img_size):
     return xyxy2yolo(self.coord, img_size)

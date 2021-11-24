@@ -9,6 +9,8 @@ parser.add_argument('--video_path', '-V', type=str,
                     help='video path to extract frame')
 parser.add_argument('--save_path', '-sp', type=str, 
                     help="save frame video path")
+parser.add_argument('--frame_interval', '-fi', type=int,
+                    help="only save frame if frame index % frame_interval == 0", default=1)
 
 # this arg decides whether or not save frame that dont have any object in it. 
 # Train mode: not save frame cuz it will not find txt file for this frame -> error when training
@@ -49,7 +51,12 @@ while success:
  #   if(save_name not in valid_frames and args.mode == "train"):
  #       continue    
     save_file = os.path.join(args.save_path, save_img_name)
-    cv2.imwrite("%s" % save_file, image)
+    if(frameId % args.frame_interval == 0):
+        try:
+            cv2.imwrite("%s" % save_file, image)
+        except Exception as e:
+            print(e)
+            print("Skip error")
         
 vidcap.release()
 print("Complete")

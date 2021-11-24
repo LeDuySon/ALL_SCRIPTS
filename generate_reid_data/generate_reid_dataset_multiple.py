@@ -1,4 +1,5 @@
 import cv2
+import json
 import math
 import numpy as np
 import argparse
@@ -6,7 +7,9 @@ import os
 from gt_utils import get_object_frame
 import glob
 import shutil
-# Make sure that the print function works on Python 2 and 3
+
+# dictionary contains info about range of track_id in each video
+info = {}
 
 #################### Setting up the file ################i
 
@@ -38,9 +41,12 @@ def init_path(args):
 
 def generate_frames(video_path, train_path):
     global CUR_NUM_ID
-    print(CUR_NUM_ID)
+
+    start_video_id = CUR_NUM_ID + 1 # cuz our obj.track_id start with 1
+    print("Start track id: ", CUR_NUM_ID)
     videoFile = video_path
-    print(videoFile)
+
+    print("Start process: ", videoFile)
     vidcap = cv2.VideoCapture(videoFile)
     success, image = vidcap.read()
     if(success):
@@ -49,13 +55,16 @@ def generate_frames(video_path, train_path):
         print("Failed")
     
     #################### Setting up parameters ################
+    
     fps = vidcap.get(cv2.CAP_PROP_FPS) # Gets the frames per second
     print("Frame rate: ", fps)
     # -4 for exclude .mp4, just get dataset name
     gt_path = video_path[:-4] + "/gt/gt.txt"
     print("GT path: ", gt_path)
     group_frame = get_object_frame(gt_path)
+
     ################### Initiate Process ################
+
     while success:
         frameId = int(round(vidcap.get(1))) #current frame number, rounded b/c sometimes you get frame intervals which aren't integers...this adds a little imprecision but is likely good enough
         if(frameId % 1000 == 0):
@@ -69,18 +78,22 @@ def generate_frames(video_path, train_path):
                 #print("Coord: ", obj.coord)
                 obj_id = obj.track_id + CUR_NUM_ID
                 save_path = os.path.join(train_path, f"{obj_id}")
-               # if(check_num_files(save_path) > limit_train):
-               #     save_path = os.path.join(test_path, f"{obj.track_id}")
+                # if(check_num_files(save_path) > limit_train):
+                #     save_path = os.path.join(test_path, f"{obj.track_id}")
                 crop_obj = image[y:y+h, x:x+w]
                 # resize all images to fixed size
                 #crop_obj = cv2.resize(crop_obj, IMG_SIZE)
                 create_folder(save_path)
                 save_crop_name = os.path.join(save_path, "{}.jpg".format(frameId))
-                #print(save_crop_name)
                 cv2.imwrite(save_crop_name, crop_obj)
+
     # keep track number of ids each video
     CUR_NUM_ID = len(os.listdir(train_path)) -1 
     
+    # store range of trackid in info dict 
+    video_name = os.path.basename(videoFile) 
+    info[video_name] = (start_video_id, CUR_NUM_ID)
+
     vidcap.release()
     print("Complete: ", video_path)
 
@@ -189,3 +202,9 @@ if __name__ == "__main__":
 
     print("START")
     main(args)
+
+    # save video info json
+    print("Save video info ...")
+    save_info_name = os.path.join(args.save_path, f"{args.mode}_video_infos.json")
+    with open(save_info_name, "w") as f:
+        json.dump(info, f)

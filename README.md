@@ -77,18 +77,22 @@ pip install -r requirement.txt
   <h4> Generate Steps: </h4>
     <ol>
       <li> Create a folder that have structure likes MOT dataset </li>
+      <pre><code>
+      bash create_folder_tree.sh {Name of ROOT_MOT}
+      </pre></code>
       <li> Go to folder generate_fairmot_dataset/, run to generate frame</li>
       <pre><code>
-      python generate_fairmot_dataset.py --video_path {video_path} --save_path {save_path}
+      python generate_fairmot_dataset.py --video_path {video_path} --save_path {save_path} --frame_interval {frame_interval}
       </pre></code>
       <p> Note: 
       <ul>
         <li> video_path: Path to video file (Only support .mp4) </li>
         <li> save_path: Save folder path ( eg: {ROOT}/images/train or {ROOT}/images/test) </li>
+        <li> frame_interval: Number of frame between 2 saving frames</li>
         <li> If you want to run on multiple video, run: </li>
       </ul>
         <pre><code>
-          bash gen_frames {folder contain your .mp4 files} {save_path}
+          bash gen_frames {folder contain your .mp4 files} {save_path} {frame_interval}
         </pre></code>
       </p>
       <li> After that, run: </li>
