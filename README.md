@@ -176,7 +176,7 @@ python generate_reid_dataset_multiple.py --data_path {path to your dataset, eg {
       <p> Note: 
       <ul>
         <li> video_path: Path to video file (Only support .mp4) </li>
-        <li> save_path: Save folder path ( eg: {ROOT}/images/train or {ROOT}/images/test) </li>
+        <li> save_path: Save folder path ( eg: {ROOT_COCO}/train or {ROOT_COCO}/test) </li>
         <li> frame_interval: Number of frame between 2 saving frames</li>
         <li> If you want to run on multiple video, run: </li>
       </ul>
@@ -190,7 +190,7 @@ python generate_reid_dataset_multiple.py --data_path {path to your dataset, eg {
       </pre></code>
       <p> Note:  
          <ul>
-            <li> root_path: Path to your MOT dataset folder train or test(eg: {ROOT_MOT}/images/train or {ROOT_MOT}/images/test </li>
+            <li> root_path: Path to your MOT dataset folder train or test(eg: {ROOT_COCO}/train or {ROOT_COCO}/test </li>
             <li> gt_path: Path to groundtruth folder ( eg: {ROOT}/train or {ROOT}/test) </li>
          </ul>
       </p>
