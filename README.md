@@ -154,6 +154,7 @@ python generate_reid_dataset_multiple.py --data_path {path to your dataset, eg {
 </code></pre>
 
 <h2 id="generate for bytetrack"> :floppy_disk: Generate bytetrack dataset </h2>
+<h5> Refer: https://github.com/ifzhang/ByteTrack </h5>
 <li><h4 id="folder-structure-bytetrack"> BYTETRACK dataset structure</h4></li>
 <pre><code>
 {ROOT_COCO}
@@ -197,6 +198,16 @@ python generate_reid_dataset_multiple.py --data_path {path to your dataset, eg {
       <pre><code>
       python convert_vtx_to_coco.py --data_path {ROOT_COCO}
       </pre></code>
+<li><h5> Guide for training and testing bytetrack </h5></li>
+<ul>
+  <li> Create new Exp class based on MOT examples in ByteTrack/exps/example/mot:</li>
+  <ul>
+        <li> Change path to your annotations json files in __init__()</li>
+        <li> Change data_dir path in get_eval_loader() to your dataset path (default mot/)</li>
+        <li> Change name of your dataset type in get_eval_loader() (default "train")</li>
+  </ul>
+  
+
       
 
 ## 
