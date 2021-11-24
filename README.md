@@ -154,7 +154,6 @@ python generate_reid_dataset_multiple.py --data_path {path to your dataset, eg {
 </code></pre>
 
 <h2 id="generate for bytetrack"> :floppy_disk: Generate bytetrack dataset </h2>
-
 <li><h4 id="folder-structure-bytetrack"> BYTETRACK dataset structure</h4></li>
 <pre><code>
 {ROOT_COCO}
@@ -163,7 +162,6 @@ python generate_reid_dataset_multiple.py --data_path {path to your dataset, eg {
 ├── train
 └── val
 </code></pre>
-
 <li><h5> Your dataset(train|test) must be the same as ours <a href="#dataset structure"> datasets </a> </li>
 <ol>
       <li> Create a folder that have structure likes COCO dataset </li>
